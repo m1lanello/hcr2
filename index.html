@@ -92,7 +92,6 @@ button.own{background:none;border:0;color:inherit;font:inherit;cursor:pointer;bo
 .none-m{color:var(--m);padding:30px;text-align:center;grid-column:1/-1}
 #toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--t);color:var(--bg);padding:10px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9;max-width:90%;text-align:center;font-weight:600}#toast.on{opacity:1}
 :focus-visible{outline:3px solid var(--e);outline-offset:2px}
-@media(max-width:560px){#q{flex:1 1 100%}.wrap{padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(40px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}h1{font-size:1.25rem}.st .big{font-size:2.2rem}.stats{grid-template-columns:1fr 1fr}.st.ce,.st.ca{grid-column:1/-1}.acts .sep{display:none}}
 .m{color:var(--m);font-size:.85rem}
 dialog{border:1px solid var(--b);border-radius:18px;background:var(--c);color:var(--t);padding:18px;width:min(560px,94vw);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 dialog::backdrop{background:rgba(5,8,15,.62);backdrop-filter:blur(3px)}
@@ -145,21 +144,68 @@ body.dragging-st{user-select:none;-webkit-user-select:none}
 #rep{display:none}
 @media print{@page{margin:10mm}body{background:#fff!important;color:#000!important;font:9pt/1.2 Arial,sans-serif}main>*:not(#rep){display:none!important}#rep{display:block;color:#000}#rep h2{margin:0 0 4px;font-size:14pt}.rs{border:1px solid #000;padding:4px 8px;margin:4px 0;line-height:1.5}#rep .lg{margin:2px 0 6px;font-size:8pt;color:#333}#rep .cols{display:grid;grid-template-columns:repeat(var(--n,1),1fr);gap:6mm;align-items:start;break-inside:avoid}#rep table{width:100%;border-collapse:collapse}#rep th,#rep td{border:1px solid #444;padding:1px 4px;text-align:left}#rep th{background:#ddd}#rep tr{break-inside:avoid}#rep td.nm2{font-weight:600}#rep td.pi{width:var(--pw,16mm);padding:1px;text-align:center}#rep td.pi img{display:block;margin:auto;height:var(--ph,30px);max-width:calc(var(--pw,16mm) - 2px);object-fit:contain}#rep .tl{margin:6px 0 0;font-weight:bold}}
 @media(pointer:coarse){input,select,textarea{font-size:16px}}
+/* ---------- layout refresh: compact header, settings dialog, tighter cards ---------- */
+.hd{flex-wrap:wrap;margin-bottom:12px}.brand{margin-right:auto;min-width:0}
+.hacts{display:flex;gap:8px}
+.btn.on{border-color:var(--e)}
+.st[hidden]{display:none}
+.stats{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.st{padding:12px 14px}.st .big{font-size:2.2rem;margin:6px 0 2px}
+.cf{cursor:pointer}small[data-bk]{cursor:pointer}small.warn[data-bk]{text-decoration:underline}
+#add{margin-left:auto}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 4px}.mg .btn{box-shadow:none}
+#stg{max-height:90vh;max-height:90dvh;overflow:auto}#stg h4{margin:16px 0 4px}#stg .cost{margin:6px 0;flex-wrap:nowrap}#stg .cost label{flex:1;min-width:0}#stg .cost input{width:100%}
+.stbar{align-items:center;justify-content:space-between;margin:0 0 10px}.stbar[hidden]{display:none}.stbar>span{color:var(--m);font-size:.82rem}.stbar .btns{display:flex;gap:8px}
+.lvs em{font-style:normal}
+.chips2 span span{background:none;padding:0;border-radius:0;font-size:inherit}
+@media(max-width:560px){
+.wrap{padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}
+.hd{gap:8px;margin-bottom:8px}.brand{gap:8px}.logo{font-size:1.6rem}h1{font-size:1.15rem}.brand p{display:none}
+.hacts{order:3;flex:1 1 100%}.hacts .btn{flex:1;padding:9px 6px;text-align:center}.hacts .btn.pri{flex:1.3}
+#stb{padding:7px 14px;font-size:1.05rem}
+.xl{display:none}
+.stats{grid-template-columns:1fr 1fr;grid-auto-flow:dense;gap:8px;margin-bottom:10px}
+.st.ce,.st.ca{grid-column:auto}.st.go{grid-column:1/-1}
+.st{padding:10px 11px;border-radius:14px}.st .big{font-size:1.9rem;margin:4px 0 0}
+.sh{gap:7px}.sh .ic{width:30px;height:30px}.tt b{font-size:1rem}
+.ce .tt small,.ca .tt small,.cf .tt small{display:none}
+.own b{font-size:1.5rem}.own span{font-size:.62rem}
+.lvs{gap:4px;margin:8px 0}.lvs>*{padding:6px 2px;border-radius:10px}.lvs b{font-size:1.25rem}.lvs span{font-size:.64rem}.lvs em{display:none}
+.prt{font-size:.7rem}.prt b{font-size:.85rem}
+.st .gb{height:24px}.st .gb b{font-size:.8rem;-webkit-text-stroke:3px #10131c}
+.st small{font-size:.75rem}
+.cf .btn{display:none}
+.chips2{margin:4px 0}.chips2 span{font-size:.78rem;padding:2px 8px}
+.ctl{gap:6px;padding:0;margin-bottom:10px}
+#q{flex:1 1 0;min-width:0;padding:8px 10px}
+#so{flex:0 1 auto;max-width:44%;padding:8px}
+#add{margin-left:0;padding:8px 12px}
+.chips{order:5;flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;margin:0 -10px;padding:0 10px 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}.chip{flex:none;white-space:nowrap;padding:6px 12px}
+.ns{padding:10px 12px;margin-bottom:10px}
+.pic{width:76px;height:50px}.v{padding:10px}#list{gap:10px}
+.stbar{flex-wrap:wrap}
+.mg .btn{padding:9px 6px}
+}
 </style></head><body><main class="wrap">
 <noscript>This tracker needs JavaScript turned on.</noscript>
-<header class="hd"><div class="brand"><span class="logo">🏎️</span><div><h1>Mythic Tracker</h1><p>Hill Climb Racing 2 · Echo &amp; Amp parts</p></div></div><button class="btn" id="th" aria-label="Switch light or dark mode"></button></header>
-<div class="acts"><button class="btn pri" id="cb">📦 Chest opened</button><button class="btn" id="fz">⚗️ Fuse-O-Matic</button><button class="btn" id="add">＋ Add vehicle</button><button class="btn" id="und">↶ Undo</button><span class="sep"></span><button class="btn" id="bk">💾 Backup &amp; sync</button><button class="btn" id="inst" hidden>📲 Install app</button><span class="sep"></span><button class="btn" id="csv">Export CSV</button><button class="btn" id="pr">🖨 Print</button><button class="btn" id="cp">Copy summary</button><span class="sep"></span><button class="btn dng" id="rst">Reset</button><input type="file" id="file" accept=".json,.txt,application/json,text/plain" hidden></div>
+<header class="hd"><div class="brand"><span class="logo">🏎️</span><div><h1>Mythic Tracker</h1><p>Hill Climb Racing 2 · Echo &amp; Amp parts</p></div></div><div class="hacts"><button class="btn pri" id="cb">📦 Chest<span class="xl"> opened</span></button><button class="btn" id="fz">⚗️ Fuse<span class="xl">-O-Matic</span></button><button class="btn" id="und">↶ Undo</button></div><button class="btn" id="stb" aria-label="Settings" title="Settings">⚙<span class="xl"> Settings</span></button></header>
+<input type="file" id="file" accept=".json,.txt,application/json,text/plain" hidden>
 <div class="ns" id="ns" hidden><div><b>New start:</b> this version begins with 0 parts. This browser still has numbers saved from before (<span id="nsx"></span>).</div><div class="nsb"><button class="btn pri" id="ns0">Start from 0</button><button class="btn" id="ns1">Keep my saved numbers</button></div></div>
 <div class="ns" id="bn" hidden><div><b>💾 Time to back up your parts.</b> <span id="bnt"></span></div><div class="nsb"><button class="btn pri" id="bn1">Back up now</button><button class="btn" id="bn2">Later</button></div></div>
-<div class="stbar"><button class="chip" id="arr" aria-pressed="false">✥ Arrange cards</button><button class="chip" id="arrr" hidden>↺ Reset order</button></div>
+<div class="stbar" id="stbar" hidden><span>Arranging cards: drag ⠿ or use ◀ ▶</span><div class="btns"><button class="chip" id="arrr">↺ Reset order</button><button class="chip on" id="ard">✓ Done</button></div></div>
 <section class="stats"><div class="st ce" id="cE"></div><div class="st ca" id="cA"></div><div class="st" id="cG"></div><div class="st" id="cR"></div><div class="st cf" id="cF"></div></section>
-<details class="set"><summary>⚙ Parts needed per level</summary><div class="cost"><label>Upgrade L1 → L2 needs<input type="number" min="0" id="c2"></label><label>Upgrade L2 → L3 (max) needs<input type="number" min="0" id="c3"></label></div><small>Parts are the ones you hold toward the next level, exactly like the bar in the game. The bar stops at the amount needed, and it restarts at 0 after each upgrade. Totals count used parts too.</small></details>
-<div class="ctl"><input id="q" type="search" placeholder="Search vehicle…" aria-label="Search vehicle"><select id="so" aria-label="Sort"><option value="order">Sort: garage order</option><option value="name">Sort: name A–Z</option><option value="parts">Sort: most parts</option><option value="near">Sort: closest to upgrade</option><option value="level">Sort: highest levels</option><option value="leg">Sort: most legendary spares</option></select><button class="chip" id="cv" aria-pressed="false">▦ Compact view</button><div class="chips" id="ch"></div></div>
+<div class="ctl"><input id="q" type="search" placeholder="Search vehicle…" aria-label="Search vehicle"><select id="so" aria-label="Sort"><option value="order">Sort: garage order</option><option value="name">Sort: name A–Z</option><option value="parts">Sort: most parts</option><option value="near">Sort: closest to upgrade</option><option value="level">Sort: highest levels</option><option value="leg">Sort: most legendary spares</option></select><div class="chips" id="ch"></div><button class="btn" id="add">＋ Add<span class="xl"> vehicle</span></button></div>
 <div class="fb" id="fb" hidden><span id="fbt"></span><button class="btn" id="fbx">✕ Clear filter</button></div>
 <div id="list"></div>
 <section id="rep" aria-hidden="true"></section>
 <div id="toast" role="status" aria-live="polite"></div>
 </main>
+<dialog id="stg" aria-labelledby="stt"><div class="dh"><h3 id="stt">⚙ Settings</h3><button class="ib" id="stx" aria-label="Close">✕</button></div>
+<h4>Display</h4><div class="mg"><button class="btn" id="th"></button><button class="btn" id="cv" aria-pressed="false">▦ Compact view</button><button class="btn" id="arr" aria-pressed="false">✥ Arrange cards</button></div>
+<h4>Data</h4><div class="mg"><button class="btn" id="bk">💾 Backup &amp; sync</button><button class="btn" id="csv">Export CSV</button><button class="btn" id="cp">Copy summary</button><button class="btn" id="pr">🖨 Print</button><button class="btn" id="inst" hidden>📲 Install app</button></div>
+<h4>Parts needed per level</h4><div class="cost"><label>Upgrade L1 → L2 needs<input type="number" min="0" id="c2"></label><label>Upgrade L2 → L3 (max) needs<input type="number" min="0" id="c3"></label></div><small class="m">Parts are the ones you hold toward the next level, exactly like the bar in the game. The bar stops at the amount needed, and it restarts at 0 after each upgrade. Totals count used parts too.</small>
+<h4>Danger zone</h4><div class="mg"><button class="btn dng" id="rst">Reset all vehicles</button></div></dialog>
 <dialog id="fuse" aria-labelledby="fzt"><div class="dh"><h3 id="fzt">⚗️ Fuse-O-Matic</h3><button class="ib" id="fzx" aria-label="Close">✕</button></div><div id="fzb"></div></dialog>
 <dialog id="dq" aria-labelledby="dqt"><form method="dialog"><h3 id="dqt"></h3><p id="dqm" class="m"></p><input id="dqi" autocomplete="off"><textarea id="dqa" rows="6"></textarea><div class="dqb"><button class="btn" value="cancel">Cancel</button><button class="btn pri" value="ok" id="dqo">OK</button></div></form></dialog>
 <dialog id="bkd" aria-labelledby="bkt"><div class="dh"><h3 id="bkt">💾 Backup &amp; sync</h3><button class="ib" id="bkx" aria-label="Close">✕</button></div><p id="bks" class="m"></p>
@@ -240,11 +286,11 @@ function render(){
 const c=(k,l)=>V.filter(v=>v[k]>=l).length,x=(k,l)=>V.filter(v=>v[k]==l).length;
 const nd=((C[1]||0)+(C[2]||0))*V.length,got=k=>V.reduce((s,v)=>s+tot(v[k],v[k+2]),0);
 const tc=(k,n,cl)=>{const pc=nd?Math.min(100,Math.round(got(k)/nd*100)):0,sw=(v,c2,inner,aria)=>'<button class="'+c2+(flt==v?" on":"")+'" data-lf="'+v+'" aria-pressed="'+(flt==v)+'" aria-label="'+aria+'">'+inner+'</button>';
-return '<div class="sh"><i class="ic '+cl+'" role="img" aria-label="'+n+'"></i><div class="tt"><b>'+n+'</b><small>cars that have this part</small></div>'+sw(k==1?"echo":"amp","own",'<b>'+c(k,1)+'</b><span>of '+V.length+' cars</span>',"Show all cars that have "+n)+'</div><div class="lvs">'+sw(cl+"1","l1",'<b>'+x(k,1)+'</b><span>Level 1</span>',"Show cars with "+n+" at Level 1")+sw(cl+"2","l2",'<b>'+x(k,2)+'</b><span>Level 2</span>',"Show cars with "+n+" at Level 2")+sw(cl+"3","l3",'<b>'+x(k,3)+'</b><span>MAX (L3)</span>',"Show cars with "+n+" at MAX level")+'</div><div class="prt"><span>Progress to max</span><b>'+pc+'%</b></div><div class="gb" role="progressbar" aria-label="'+n+' progress to max" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+pc+'"><i style="width:'+pc+'%"></i><b>'+got(k)+' / '+nd+' parts</b></div><small class="pn">'+left(k)+' more parts to max every car</small>'};
+return '<div class="sh"><i class="ic '+cl+'" role="img" aria-label="'+n+'"></i><div class="tt"><b>'+n+'</b><small>cars that have this part</small></div>'+sw(k==1?"echo":"amp","own",'<b>'+c(k,1)+'</b><span>of '+V.length+' cars</span>',"Show all cars that have "+n)+'</div><div class="lvs">'+sw(cl+"1","l1",'<b>'+x(k,1)+'</b><span class="lv">L<em>evel </em>1</span>',"Show cars with "+n+" at Level 1")+sw(cl+"2","l2",'<b>'+x(k,2)+'</b><span class="lv">L<em>evel </em>2</span>',"Show cars with "+n+" at Level 2")+sw(cl+"3","l3",'<b>'+x(k,3)+'</b><span>MAX<em> (L3)</em></span>',"Show cars with "+n+" at MAX level")+'</div><div class="prt"><span>Progress to max</span><b>'+pc+'%</b></div><div class="gb" role="progressbar" aria-label="'+n+' progress to max" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+pc+'"><i style="width:'+pc+'%"></i><b>'+got(k)+' / '+nd+' parts</b></div><small class="pn">'+left(k)+' more parts to max every car</small>'};
 $("#cE").innerHTML=tc(1,"Echo","e");$("#cA").innerHTML=tc(2,"Amp","a");
 const r=readyN(),b=+rd("hcr2Backup")||0,days=b?Math.floor((Date.now()-b)/864e5):null;
-$("#cG").innerHTML='<div class="sh">🚗<div class="tt"><b>Garage</b><small>vehicles tracked</small></div></div><b class="big">'+V.length+'</b><div class="chips2"><span>🧩 '+(got(1)+got(2))+' parts collected</span><span>⭐ '+V.filter(v=>v[5]).length+' priority</span></div><small class="'+(days===null||days>7?"warn":"")+'">Last backup: '+(days===null?"never · open 💾 Backup &amp; sync":days==0?"today":days+" day"+(days>1?"s":"")+" ago")+'</small>';
-$("#cR").className="st"+(r?" go":"");$("#cR").innerHTML='<div class="sh">⬆<div class="tt"><b>Ready to upgrade</b><small>parts with a full green bar</small></div></div><b class="big">'+r+'</b><small>'+(r?"Tap the green bar on a car to upgrade it.":"Nothing to upgrade right now.")+'</small>';
+$("#cG").innerHTML='<div class="sh">🚗<div class="tt"><b>Garage</b><small>vehicles tracked</small></div></div><b class="big">'+V.length+'</b><div class="chips2"><span>🧩 '+(got(1)+got(2))+'<span class="xl"> parts collected</span></span><span>⭐ '+V.filter(v=>v[5]).length+'<span class="xl"> priority</span></span></div><small data-bk="1" class="'+(days===null||days>7?"warn":"")+'">Last backup: '+(days===null?'never<span class="xl"> · open 💾 Backup &amp; sync</span>':days==0?"today":days+" day"+(days>1?"s":"")+" ago")+'</small>';
+$("#cR").className="st"+(r?" go":"");$("#cR").hidden=!r&&!arr;$("#cR").innerHTML='<div class="sh">⬆<div class="tt"><b>Ready to upgrade</b><small>parts with a full green bar</small></div></div><b class="big">'+r+'</b><small>'+(r?"Tap the green bar on a car to upgrade it.":"Nothing to upgrade right now.")+'</small>';
 const fc=fzCalc();$("#cF").innerHTML='<div class="sh">⚗️<div class="tt"><b>Fuse-O-Matic</b><small>10 spare legendary parts = 1 random mythic</small></div></div><b class="big">'+fc.n+'</b><small>mythic part'+(fc.n==1?"":"s")+' ready to fuse</small><div class="gb" role="progressbar" aria-label="Spare legendary parts toward the next mythic" aria-valuemin="0" aria-valuemax="10" aria-valuenow="'+fc.r+'"><i style="width:'+fc.r*10+'%"></i><b>'+fc.r+'/10</b></div>'+(fc.n?'<small class="ft">⏱ about '+fmtDur(fzHours(fc.n,FT.f,FT.s))+' to fuse them all</small>':"")+'<small>'+fc.t+' spare legendary parts in total'+(fc.t?" · "+fc.g+" guaranteed (100%) + "+fc.m+" mixed":"")+'</small><button class="btn pri" data-fz="1">Open Fuse-O-Matic</button>';
 $("#und").disabled=!H.length;$("#und").textContent="↶ Undo"+(H.length?" ("+H.length+")":"");
 document.querySelectorAll("#ch .chip").forEach(b=>{const on=b.dataset.f==flt;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on)});
@@ -275,7 +321,7 @@ const today=()=>new Date().toISOString().slice(0,10);
 const dl=(txt,type,name)=>{const a=document.createElement("a"),u=URL.createObjectURL(new Blob([txt],{type}));a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)};
 $("#csv").onclick=()=>{const q=s=>'"'+String(s).replace(/"/g,'""')+'"';dl("\ufeff"+["Vehicle,Echo level,Echo parts held,Echo total collected,Amp level,Amp parts held,Amp total collected,Priority,Legendary spares"].concat(V.map(v=>[q(v[0]),v[1],v[3],tot(v[1],v[3]),v[2],v[4],tot(v[2],v[4]),v[5]?"yes":"no",lg(v)].join(","))).join("\r\n"),"text/csv","hcr2-mythic-"+today()+".csv")};
 $("#cp").onclick=async()=>{const x=(k,l)=>V.filter(v=>v[k]==l).length,s=k=>V.filter(v=>v[k]>0).length+" cars (L1 "+x(k,1)+" · L2 "+x(k,2)+" · L3 "+x(k,3)+"), "+left(k)+" parts to max",t="HCR2 mythic parts - Echo: "+s(1)+" | Amp: "+s(2)+(fzCalc().t?" | Fuse-O-Matic: "+fzCalc().t+" spare legendary = "+fzCalc().n+" mythic parts":"");
-try{await navigator.clipboard.writeText(t);const b=$("#cp");b.textContent="Copied ✓";setTimeout(()=>b.textContent="Copy summary",1500)}catch(e){askBox("Copy this summary",{input:"area",value:t,ok:"Done"})}};
+try{await navigator.clipboard.writeText(t);toast("Summary copied.")}catch(e){askBox("Copy this summary",{input:"area",value:t,ok:"Done"})}};
 const pg=(l,p)=>{const s=st(l,p);return s.t=="max"?"MAX":p+"/"+s.c};
 function buildReport(){const L=view(),c=(k,l)=>V.filter(v=>v[k]>=l).length,x=(k,l)=>V.filter(v=>v[k]==l).length,nd=((C[1]||0)+(C[2]||0))*V.length,gk=k=>V.reduce((s,v)=>s+tot(v[k],v[k+2]),0),s=k=>c(k,1)+" cars (L1 "+x(k,1)+" · L2 "+x(k,2)+" · L3 "+x(k,3)+") · "+gk(k)+"/"+nd+" parts collected, "+left(k)+" to max",f=FLN[flt];
 const fq=fzCalc(),n=L.length,cols=Math.max(1,Math.min(4,Math.ceil(n/22))),per=Math.ceil(n/cols)||1,ph=Math.max(18,Math.min(40,Math.floor(700/per)-5)),pw=Math.max(12,Math.round(ph*1.7*.2646));
@@ -394,7 +440,8 @@ const wzGo=(d,save)=>{if(save)wzSave();fzI+=d;if(fzI>=V.length){fzSeen();fzMode=
 const startWiz=()=>{fzSeqA=fzSeq();fzMode="wiz";fzI=0;fzBase=JSON.stringify(V);fzSnapped=false;renderFuse()};
 const openFuse=()=>{if(!fuse.showModal)return;fzSeqA=fzSeq();fzMode=rd("hcr2FuseSeen")?"res":"wiz";fzI=0;fzBase=JSON.stringify(V);fzSnapped=false;renderFuse();fuse.showModal();if(fzMode=="wiz"){$("#wi").focus();$("#wi").select()}};
 $("#fz").onclick=openFuse;
-$("#cF").addEventListener("click",e=>{if(e.target.closest("[data-fz]"))openFuse()});
+$("#cF").addEventListener("click",e=>{if(arr||e.target.closest(".arw"))return;openFuse()});
+$("#cG").addEventListener("click",e=>{if(!arr&&e.target.closest("[data-bk]"))$("#bk").click()});
 $("#fzx").onclick=()=>fuse.close();
 $("#fzb").addEventListener("click",async e=>{const b=e.target.closest("button");if(!b)return;const id=b.id;if(b.dataset.fa){fzSel=+b.dataset.fa;faList();faPanel();faSay("");return}if(b.dataset.fadd){faAdd(+b.dataset.fadd);return}
  if(id=="wn")wzGo(1,true);else if(id=="ws")wzGo(1,false);else if(id=="wb")wzGo(-1,true);
@@ -417,8 +464,8 @@ let arr=false,drag=null;
 const saveOrder=()=>{try{localStorage.hcr2Order=JSON.stringify([...stats.children].map(c=>c.id))}catch(e){}};
 const applyOrder=ids=>{const seen=new Set(),ord=(Array.isArray(ids)?ids:[]).filter(x=>typeof x=="string"&&ST_IDS.includes(x)&&!seen.has(x)&&seen.add(x));ST_IDS.forEach(x=>{if(!seen.has(x))ord.push(x)});ord.forEach(id=>stats.append($("#"+id)))};
 function decorate(){stats.querySelectorAll(".arw").forEach(e=>e.remove());if(!arr)return;const kids=[...stats.children];kids.forEach((c,i)=>{const n=ST_NAMES[c.id],d=document.createElement("div");d.className="arw";d.innerHTML='<button data-mv="-1" aria-label="Move '+n+' earlier"'+(i?"":" disabled")+'>◀</button><button class="dh2" aria-label="Drag to move '+n+'">⠿ drag</button><button data-mv="1" aria-label="Move '+n+' later"'+(i<kids.length-1?"":" disabled")+'>▶</button>';c.append(d)})}
-const setArr=on=>{arr=on;stats.classList.toggle("arranging",on);$("#arr").setAttribute("aria-pressed",on);$("#arr").classList.toggle("on",on);$("#arr").textContent=on?"✓ Done arranging":"✥ Arrange cards";$("#arrr").hidden=!on;decorate()};
-$("#arr").onclick=()=>setArr(!arr);
+const setArr=on=>{arr=on;stats.classList.toggle("arranging",on);$("#arr").setAttribute("aria-pressed",on);$("#arr").classList.toggle("on",on);$("#stbar").hidden=!on;$("#cR").hidden=!on&&!readyN();decorate()};
+$("#arr").onclick=()=>setArr(!arr);$("#ard").onclick=()=>setArr(false);
 $("#arrr").onclick=()=>{try{localStorage.removeItem("hcr2Order")}catch(e){}applyOrder(ST_IDS);decorate();toast("Card order reset.")};
 stats.addEventListener("click",e=>{const b=e.target.closest("[data-mv]");if(!b)return;const c=b.closest(".st"),d=+b.dataset.mv,sib=d<0?c.previousElementSibling:c.nextElementSibling;if(!sib)return;d<0?sib.before(c):sib.after(c);saveOrder();decorate();const k=[...stats.children].indexOf(c);toast(ST_NAMES[c.id]+" moved to position "+(k+1)+" of "+stats.children.length);const again=c.querySelector('[data-mv="'+d+'"]:not(:disabled)')||c.querySelector(".dh2");if(again)again.focus()});
 const dropTarget=(e,self)=>[...stats.children].find(k=>{if(k===self)return false;const r=k.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom});
@@ -436,5 +483,12 @@ let instEv=null;
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();instEv=e;$("#inst").hidden=false});
 $("#inst").onclick=async()=>{if(!instEv)return;instEv.prompt();try{await instEv.userChoice}catch(x){}instEv=null;$("#inst").hidden=true};
 addEventListener("appinstalled",()=>{instEv=null;$("#inst").hidden=true});
+/* ---------- settings dialog ---------- */
+const stg=$("#stg");
+$("#stb").onclick=()=>{if(stg.showModal)stg.showModal()};
+$("#stx").onclick=()=>stg.close();
+/* every action closes the dialog first (capture), except the two display toggles */
+stg.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||b.id=="th"||b.id=="cv")return;stg.close()},true);
+stg.addEventListener("click",e=>{if(e.target===stg)stg.close()});
 render();
 </script></body></html>
